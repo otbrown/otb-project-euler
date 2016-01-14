@@ -10,15 +10,15 @@ using std::cout;		using std::endl;
 
 int solution() {
     int fib = 0;
-    int sum = 2;
-    int i = 1;
-    int j = 2;
+    int sum = 0;
+    int fib1 = 0;
+    int fib2 = 1;
 
     while (fib < 4000000) {
-        fib = i + j;
-        if (fib % 2 == 0) sum += fib;
-        i = j;
-        j = fib;
+        sum += fib;
+        fib1 = fib2 + fib;
+        fib2 = fib + fib1; 
+        fib = fib1 + fib2;
     }
 
 	return sum;
@@ -33,8 +33,12 @@ int main() {
 
 	std::chrono::duration<double, std::milli> dt = t_finish - t_start;
 
-    cout << "Solution is " << answer << endl 
-         << "Solution took " << dt.count() << "ms" << endl;
+    if (answer == 4613732) {
+        cout << "Solution is " << answer << endl 
+             << "Solution took " << dt.count() << "ms" << endl;
+    } else {
+        cout << "Incorrect solution: " << answer << endl;
+    }
 
 	return 0;
 }
