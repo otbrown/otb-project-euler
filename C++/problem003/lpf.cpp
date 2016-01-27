@@ -10,7 +10,12 @@ long int LargestPrimeFactor (long int target)
     int i;
     long int lpf = -1;
 
-    for (i = 2; i < (target / 2); i++) {
+    if(IsFactor(target, 2)) {
+        lpf = target / 2;
+        if (IsPrime(lpf)) return lpf;
+    }
+
+    for (i = 3; i < (target / 2); i = i + 2) {
        if (IsFactor(target, i)) {
            lpf = target / i;
            if (IsPrime(lpf)) break;
