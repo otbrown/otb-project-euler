@@ -5,10 +5,10 @@
 
 #include "ep003.h"
 
-int LargestPrimeFactor (int target)
+long int LargestPrimeFactor (long int target)
 {
     int i;
-    int lpf = -1;
+    long int lpf = -1;
 
     for (i = 2; i < (target / 2); i++) {
        if (IsFactor(target, i)) {
