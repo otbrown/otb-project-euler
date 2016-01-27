@@ -1,9 +1,11 @@
 // ep003.cpp
 // solution to project euler problem 3: what is the largest prime factor of 600851475143?
+// test target is 13195, with lpf=29
 // Oliver Thomson Brown
 // 2016-01-27
 
 #include <iostream>
+#include <chrono>
 #include "ep003.h"
 
 using std::cout;        using std::endl;
@@ -13,9 +15,16 @@ int main(void)
     const int target = 13195;
     int lpf;
 
+    auto t_start = std::chrono::high_resolution_clock::now();
+
     lpf = LargestPrimeFactor(target);
 
-    cout << "Largest prime factor of " << target << " is " << lpf << "." << endl;
+    auto t_finish = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double, std::milli> dt = t_finish - t_start;
+    
+    cout << "Largest prime factor of " << target << " is " << lpf << "." << endl
+         << "Answer took " << dt.count() << "ms." << endl;
 
     return 0;
 }
