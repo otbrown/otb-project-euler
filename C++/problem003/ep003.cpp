@@ -18,7 +18,7 @@ int main(void)
 
     auto t_start = std::chrono::high_resolution_clock::now();
 
-    lpf = LargestPrimeFactor(target, 2);
+    lpf = LargestPrimeFactor(target);
 
     auto t_finish = std::chrono::high_resolution_clock::now();
 
