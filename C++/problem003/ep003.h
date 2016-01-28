@@ -10,4 +10,6 @@ bool IsFactor(long int target, long int factor);
 // test if number is prime
 bool IsPrime(long int x);
 
+// calculate modular exponentiation
+int ModularExp(int base, long int exponent, long int modulus); 
 #endif
