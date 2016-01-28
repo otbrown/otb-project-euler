@@ -12,8 +12,8 @@ using std::cout;        using std::endl;
 
 int main(void)
 {
-    //const long int target = 13195;
-    const long int target = 600851475143;
+    const long int target = 13195;
+    //const long int target = 600851475143;
     long int lpf;
 
     auto t_start = std::chrono::high_resolution_clock::now();
