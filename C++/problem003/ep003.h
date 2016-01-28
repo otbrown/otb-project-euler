@@ -1,8 +1,8 @@
 #ifndef _ep003_h
 #define _ep003_h
 
-// function which returns the largest prime factor of a target, x 
-long int LargestPrimeFactor(long int x);
+// function which returns the largest prime factor of a target 
+long int LargestPrimeFactor(long int target, long int lowerBound);
 
 // test if factor is a factor of target
 bool IsFactor(long int target, long int factor);
