@@ -6,37 +6,26 @@
 #include <cmath>
 #include "ep003.h"
 
-long int LargestPrimeFactor (long int target, long int lowerBound)
+long int LargestPrimeFactor (long int target)
 {
-    long int i;
-    long int lpf = -1;
-	long int targetRt; 
+	long int i = 3;
+	long int targetRt;	
 
-	if (lowerBound == 2) {
-		if (IsFactor(target, 2)) {
-			target /= 2;
-			lpf = LargestPrimeFactor(target, 2);
-		} else {
-			lpf = LargestPrimeFactor(target, 3);
-		} 
-	}
+	while (IsFactor(target, 2)) target /= 2;
 
-	if (!IsPrime(target)) {	
-		targetRt = (long int) std::sqrt(target); 
-
-		for (i = lowerBound; i < targetRt; i += 2) {
-			if (IsFactor(target, i)) {
-				if (IsPrime(i)) {
-					target /= i;
-					lpf = LargestPrimeFactor(target, i);
-					return lpf;
-				}
+	if (IsPrime(target)) return target;
+	
+	targetRt = (long int) std::sqrt(target);
+	while (i <= targetRt) {
+		if (IsFactor(target, i)) {
+			if (IsPrime(i)) {
+				while (IsFactor(target, i)) target /= i;
+				if (IsPrime(target)) break;
+				targetRt = (long int) std::sqrt(target);
 			}
 		}
-	} else {
-		lpf = target;
-		return lpf;
+		i += 2;
 	}
 
-	return lpf;
+	return target;
 }
