@@ -7,17 +7,12 @@
 
 long int LargestPrimeFactor (long int target)
 {
-    int i;
+    long int i;
     long int lpf = -1;
 
-    if(IsFactor(target, 2)) {
-        lpf = target / 2;
-        if (IsPrime(lpf)) return lpf;
-    }
-
-    for (i = 3; i < (target / 2); i = i + 2) {
+    for (i = (target / 2); i > 1; i = i - 2) {
        if (IsFactor(target, i)) {
-           lpf = target / i;
+           lpf = i;
            if (IsPrime(lpf)) break;
        }
     }
