@@ -3,7 +3,6 @@
 // Oliver Thomson Brown
 // 2016-01-27
 
-#include <cmath>
 #include "ep003.h"
 
 bool IsFactor(long int target, long int factor)
@@ -15,7 +14,7 @@ bool IsPrime (long int factor)
 {
     // uses Fermat's Little Theorem
     // cast to int should be safe as 2^int is an int
-    double fermat = std::exp2(factor);
+    int fermat = ModularExp(2, factor, factor);  
 
-    return ((long int)fermat % factor == 2) ? true : false;
+    return (fermat == 2) ? true : false;
 }
