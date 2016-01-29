@@ -17,13 +17,11 @@ long int LargestPrimeFactor (long int target)
 	
 	targetRt = (long int) std::sqrt(target);
 	while (i <= targetRt) {
-		if (IsFactor(target, i)) {
-			if (IsPrime(i)) {
-				while (IsFactor(target, i)) target /= i;
-				if (IsPrime(target)) break;
-				targetRt = (long int) std::sqrt(target);
-			}
+		while (IsFactor(target, i)) {
+			if (IsPrime(i)) target /= i;
+            else break;
 		}
+        targetRt = (long int) std::sqrt(target);
 		i += 2;
 	}
 
