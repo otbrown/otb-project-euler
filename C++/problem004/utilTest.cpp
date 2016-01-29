@@ -28,10 +28,17 @@ int main (void)
     int* digits3 = IntSplit(testInt3, len3);
     int* digits4 = IntSplit(testInt4, len4);
 
+    int paliEvn = 8008;
+    int paliOdd = 12021;
+    int notPaliEvn = 123421;
+    int notPaliOdd = 1234521;
+
     cout << testInt1 << " has " << len1 << " digits." << endl;
     cout << testInt2 << " has " << len2 << " digits." << endl;
     cout << testInt3 << " has " << len3 << " digits." << endl;
     cout << testInt4 << " has " << len4 << " digits." << endl;
+
+    cout << endl;
 
     cout << "    N    | Digits " << endl << "---------|---------------" << endl;
 
@@ -56,5 +63,19 @@ int main (void)
     delete[] digits3;
     delete[] digits4;
 
+    cout << endl;
+
+    if (IsPali(paliEvn)) cout << paliEvn << " is palindromic." << endl;
+    else cout << "Error in IsPali(paliEvn)." << endl;
+
+    if (IsPali(paliOdd)) cout << paliOdd << " is palindromic." << endl;
+    else cout << "Error in IsPali(paliOdd)." << endl;
+   
+    if (!IsPali(notPaliEvn)) cout << notPaliEvn << " is not palindromic." << endl;
+    else cout << "Error in IsPali(notPaliEvn)." << endl;
+    
+    if (!IsPali(notPaliOdd)) cout << notPaliOdd << " is not palindromic." << endl;
+    else cout << "Error in IsPali(notPaliOdd)." << endl;
+     
     return 0;
 }
