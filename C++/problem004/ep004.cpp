@@ -14,16 +14,18 @@ using std::cout;        using std::endl;
 
 int main(void)
 {
-    const int numDigits = 2;
-    const int upper = 99;
-    const int lower = 10;
+    const int numDigits = 3;
+    const int upper = 999;
+    const int lower = 100;
     int a, b;
     int pali = -1;
     int rng = (upper - lower + 1) * (upper - lower + 1);
     std::vector<int> product(rng);
-    std::vector<int>::iterator iter = product.begin();
+    std::vector<int>::iterator iter;
 
     auto t_start = std::chrono::high_resolution_clock::now();
+
+    iter = product.begin();
 
     for (a = lower; a < (upper + 1); ++a) {
         for (b = lower; b < (upper + 1); ++b) {
