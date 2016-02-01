@@ -18,7 +18,6 @@ unsigned long long int* GetBounds(const int BIT_WIDTH)
 // determine if the Hamming weight of the fixed width binary representation is BIT_WIDTH / 2
 bool IsValid(unsigned long long int decInt, const int BIT_WIDTH)
 {
-    // relies on decInt having *at least* (BIT_WIDTH / 2) set bits
     int setCount = 0;
     int setLimit = BIT_WIDTH / 2;
 
@@ -27,8 +26,9 @@ bool IsValid(unsigned long long int decInt, const int BIT_WIDTH)
         if (setCount > setLimit) return false;
         decInt /= 2;
     }
-    
-    return true;
+
+    if (setCount == (BIT_WIDTH / 2)) return true;
+    else return false;
 }
 
 // calculate the exponentiation of two integers
