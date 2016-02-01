@@ -5,6 +5,7 @@
 // Oliver Thomson Brown
 // 2016-02-01
 
+#include <omp.h>
 #include "ep015.h"
 
 unsigned long long int CountPaths(const int GRID_SIZE)
@@ -17,6 +18,7 @@ unsigned long long int CountPaths(const int GRID_SIZE)
     bounds = GetBounds(BIT_WIDTH);
 
     count = 0;
+    #pragma omp parallel for shared(bounds) private(decInt) reduction(+:count) default(none)
     for (decInt = bounds[0]; decInt < bounds[1] + 1; decInt++) {
         if (IsValid(decInt, BIT_WIDTH)) count++;
     }
