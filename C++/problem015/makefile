@@ -1,5 +1,5 @@
 CC=g++
-CPPFLAGS = -std=c++11 -Wall -O3
+CPPFLAGS = -std=c++11 -fopenmp -Wall -O3
 
 ep015: ep015.cpp count_paths.o utils.o 
 	$(CC) $(CPPFLAGS) -o $@ $^
