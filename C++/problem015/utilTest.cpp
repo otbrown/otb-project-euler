@@ -15,9 +15,7 @@ int main (void)
     int exp1 = 3;
     int exp2 = 10;
     int exp3 = 15;
-    int dec1 = 9;
-    int dec2 = 10;
-    int dec3 = 11;
+    unsigned long long int dec;
 
     bounds = GetBounds(BIT_WIDTH);
 
@@ -31,12 +29,11 @@ int main (void)
     cout << base << "^" << exp3 << ": " << IntPow(base, exp3) << endl;
     cout << endl;
 
-    if (IsValid(dec1, BIT_WIDTH)) cout << "9 is 1001." << endl;
-    else cout << "IsValid has failed on " << dec1 << "." << endl;
-    if (IsValid(dec2, BIT_WIDTH)) cout << "10 is 1010." << endl;
-    else cout << "IsValid has failed on " << dec2 << "." << endl;
-    if (!IsValid(dec3, BIT_WIDTH)) cout << "11 is 1011." << endl;
-    else cout << "IsValid has failed on " << dec3 << "." << endl;
+    for (dec = bounds[0]; dec < (bounds[1] + 1); dec++) {
+        cout << dec << ": ";
+        if (IsValid(dec, BIT_WIDTH)) cout << "VALID" << endl;
+        else cout << "INVALID" << endl;
+    }
 
     delete[] bounds;
 
