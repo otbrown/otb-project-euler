@@ -25,10 +25,10 @@ int main(void)
 
     auto t_finish = std::chrono::high_resolution_clock::now();
 
-    std::chrono::duration<double, std::milli> dt = t_finish - t_start;
+    std::chrono::duration<double> dt = t_finish - t_start;
     
     cout << "Number of valid paths in a " << GRID_SIZE << " x " << GRID_SIZE << " grid is " << numPaths << "." << endl
-         << "Answer took " << dt.count() << "ms." << endl;
+         << "Answer took " << dt.count() << "s." << endl;
 
     return 0;
 }
